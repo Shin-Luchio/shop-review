@@ -53,6 +53,12 @@
     });
   });
 
+  /* ── 카카오톡: 휴대폰에서는 바로 채팅(앱이 열려요), PC는 채널 홈 ── */
+  try {
+    if (window.matchMedia && matchMedia('(pointer: coarse)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-kakao-chat]'), function (a) { a.href = a.getAttribute('data-kakao-chat'); });
+    }
+  } catch (e) {}
   /* ── 카카오톡 (주소를 아직 넣지 않았을 때) ── */
   document.addEventListener('click', function (e) {
     var k = e.target.closest('[data-kakao-pending]');

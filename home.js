@@ -729,6 +729,12 @@
     showFinal();
   }
 
+  /* ── 카카오톡: 휴대폰에서는 바로 채팅(앱이 열려요), PC는 채널 홈 ── */
+  try {
+    if (window.matchMedia && matchMedia('(pointer: coarse)').matches) {
+      Array.prototype.forEach.call(document.querySelectorAll('[data-kakao-chat]'), function (a) { a.href = a.getAttribute('data-kakao-chat'); });
+    }
+  } catch (e) {}
   /* ── 버튼 ── */
   $('#play').addEventListener('click', function () { start(true); });
   $('#play-quiet').addEventListener('click', function () { start(false); });
