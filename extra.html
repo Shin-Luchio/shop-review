@@ -21,7 +21,10 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="style.css?v=13">
-<style>.tips--alert li{background:var(--terra-soft)}.tips--alert b{color:var(--terra-ink)}</style>
+<style>.tips--alert li{background:var(--terra-soft)}.tips--alert b{color:var(--terra-ink)}
+.svc{table-layout:fixed;min-width:560px}.svc .svc__k{width:120px}
+.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}.svc li{line-height:1.5}
+.svc a{font-weight:700}.svc small{display:block;color:var(--muted);font-size:14px}</style>
 </head>
 <body>
 <a class="skip" href="#main">본문으로 바로 가기</a>
@@ -33,29 +36,17 @@
 <header class="page-head wrap narrow">
   <span class="eyebrow">✨ Extra</span>
   <h1>AI 크리에이티브 체험</h1>
-  <p class="lead">쇼핑몰 개발 과정을 마친 뒤 진행하는 Extra 강의예요. 이미 서비스 중인 생성형 AI로 <b>내 가게의 로고 · 음악 · 영상</b>을 직접 만들어 봐요.</p>
+  <p class="lead">이미 서비스 중인 생성형 AI로 <b>내 가게의 로고 · 음악 · 영상</b>을 직접 만들어 봐요.</p>
 </header>
 
 <main id="main" class="wrap narrow">
   <section class="section" id="overview">
-    <div class="section__head"><div><span class="kicker">OVERVIEW</span><h2>어떤 수업인가요</h2></div></div>
+    <div class="section__head"><div><span class="kicker">OVERVIEW</span></div></div>
     <ul class="ideas"><li><b>언제</b><span>쇼핑몰 개발 과정을 마친 뒤 진행하는 Extra 강의예요.</span></li><li><b>목표</b><span>이미 서비스 중인 생성형 AI로 음악 · 이미지 · 영상을 만들어 보는 경험이에요.</span></li><li><b>무엇을</b><span>각자 만든 쇼핑몰 사이트를 기준으로 브랜드 에셋을 만들어요.</span><ul class="chips"><li>로고</li><li>파비콘</li><li>앱 아이콘</li><li>BGM</li><li>CM송</li><li>홍보 영상</li></ul></li></ul>
   </section>
 
-  <section class="section" id="timetable">
-    <div class="section__head"><div><span class="kicker">TIMETABLE</span><h2>하루 진행표</h2><p>총 4시간 · 오전에는 다듬고 서로 써보고, 오후에는 AI로 만들어요.</p></div></div>
-    <div class="card method">
-      <h3>오전 2시간 · 다듬고 서로 써보기</h3>
-      <div class="scroll"><table class="tbl"><thead><tr><th scope="col">시간</th><th scope="col">내용</th></tr></thead><tbody><tr><td class="num">0:00~0:10</td><td><b>오프닝</b> — 수강생 사이트 갤러리 공개, QR로 서로의 사이트 접속</td></tr><tr><td class="num">0:10~0:50</td><td><b>마지막 스프린트</b> — 오늘 완성할 목표 1개를 AI로 구현</td></tr><tr><td class="num">0:50~1:40</td><td><b>교차 QA</b> — 다른 사이트 2~3개를 체크리스트대로 사용해 보고 버그와 칭찬 남기기</td></tr><tr><td class="num">1:40~2:00</td><td><b>반영 · 준비</b> — 피드백 1개 반영 및 데모 준비</td></tr></tbody></table></div>
-      <h3>🍱 점심</h3>
-      <p class="sub">갤러리 페이지를 띄워두고 투표 폼 오픈</p>
-      <h3>오후 2시간 · AI 크리에이티브 체험과 마무리</h3>
-      <div class="scroll"><table class="tbl"><thead><tr><th scope="col">시간</th><th scope="col">내용</th></tr></thead><tbody><tr><td class="num">0:00~0:15</td><td><b>서비스 소개와 시연</b> — 카테고리별 1분 데모</td></tr><tr><td class="num">0:15~1:15</td><td><b>브랜드 에셋 미션</b> — 내 사이트의 브랜드 에셋 만들기 미션</td></tr><tr><td class="num">1:15~1:45</td><td><b>결과물 공유</b> — 상영회</td></tr><tr><td class="num">1:45~2:00</td><td><b>마무리</b> — 투표, 시상, 타임캡슐 작성, 단체 사진</td></tr></tbody></table></div>
-    </div>
-  </section>
-
   <section class="section" id="assets">
-    <div class="section__head"><div><span class="kicker">ASSETS</span><h2>만들 수 있는 에셋</h2><p>내 쇼핑몰을 기준으로 만들어요.</p></div></div>
+    <div class="section__head"><div><span class="kicker">ASSETS</span><h2>에셋 예시</h2></div></div>
     <div class="card method">
       <div class="scroll"><table class="tbl"><thead><tr><th scope="col">에셋</th><th scope="col">규격/형태</th><th scope="col">난이도</th></tr></thead><tbody><tr><th scope="row">로고</th><td>가로형, 심볼형 (SVG/PNG)</td><td class="num">쉬움</td></tr><tr><th scope="row">파비콘</th><td>32×32, 180×180(Apple), 512×512(PWA)</td><td class="num">로고에서 파생</td></tr><tr><th scope="row">브랜드 앱 아이콘</th><td>1024×1024 정사각형</td><td class="num">로고에서 파생</td></tr><tr><th scope="row">브랜드 컬러/폰트</th><td>3~5색 + 폰트 1~2종</td><td class="num">쉬움</td></tr><tr><th scope="row">BGM</th><td>30~60초 루프</td><td class="num">보통</td></tr><tr><th scope="row">CM송</th><td>15~30초 징글, 가사 포함</td><td class="num">보통</td></tr><tr><th scope="row">홍보 영상</th><td>5~10초 클립</td><td class="num">보통</td></tr><tr><th scope="row">나레이션</th><td>10~20초</td><td class="num">쉬움</td></tr></tbody></table></div>
       <ul class="legend"><li><b>추천 흐름</b>&nbsp; 로고 → 파비콘/앱 아이콘 → BGM/CM송 → 홍보 영상</li></ul>
@@ -66,7 +57,7 @@
     <div class="section__head"><div><span class="kicker">SERVICES</span><h2>서비스 추천</h2><p>무료로 체험해 보고, 시연이나 상업 이용에는 유료를 권해요.</p></div></div>
     <div class="card method">
       <p class="sub note note--warm">가격과 무료 정책은 2026년 11월 기준이며 자주 바뀝니다. 사용 전 각 서비스의 공식 요금 페이지를 확인하세요.</p>
-      <div class="scroll"><table class="tbl"><thead><tr><th scope="col">구분</th><th scope="col">무료로 체험</th><th scope="col">유료 권장 (시연 또는 상업 이용)</th></tr></thead><tbody><tr><th scope="row">로고/아이콘</th><td>ChatGPT·Gemini 이미지 생성, Canva, Ideogram, Adobe Firefly(소량 크레딧), RealFaviconGenerator·favicon.io(파비콘 변환)</td><td>Midjourney, Looka</td></tr><tr><th scope="row">음악</th><td>Suno 무료 (하루 50크레딧, 개인용, 다운로드 한도 있음)</td><td>Suno Pro 월 10달러 / Premier 월 30달러 (연간 결제 시 할인, 상업 이용 가능)</td></tr><tr><th scope="row">음성</th><td>ElevenLabs 무료 (비상업용)</td><td>ElevenLabs Starter 월 5~6달러부터 (상업 이용 가능)</td></tr><tr><th scope="row">영상</th><td>Kling 무료 크레딧, Pika 무료 플랜</td><td>Google Veo (Google AI Pro 월 19.99달러), Kling·Pika·Runway 유료</td></tr></tbody></table></div>
+      <div class="scroll"><table class="tbl svc"><colgroup><col class="svc__k"><col><col></colgroup><thead><tr><th scope="col">구분</th><th scope="col">무료로 체험</th><th scope="col">유료 권장 (시연 또는 상업 이용)</th></tr></thead><tbody><tr><th scope="row">로고/아이콘</th><td><ul><li><a href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPT</a> · <a href="https://gemini.google.com/" target="_blank" rel="noopener">Gemini</a> 이미지 생성</li><li><a href="https://www.canva.com/" target="_blank" rel="noopener">Canva</a></li><li><a href="https://ideogram.ai/" target="_blank" rel="noopener">Ideogram</a></li><li><a href="https://firefly.adobe.com/" target="_blank" rel="noopener">Adobe Firefly</a><small>소량 크레딧</small></li><li><a href="https://realfavicongenerator.net/" target="_blank" rel="noopener">RealFaviconGenerator</a> · <a href="https://favicon.io/" target="_blank" rel="noopener">favicon.io</a><small>파비콘 변환</small></li></ul></td><td><ul><li><a href="https://www.midjourney.com/" target="_blank" rel="noopener">Midjourney</a></li><li><a href="https://looka.com/" target="_blank" rel="noopener">Looka</a></li></ul></td></tr><tr><th scope="row">음악</th><td><ul><li><a href="https://suno.com/" target="_blank" rel="noopener">Suno</a> 무료<small>하루 50크레딧, 개인용, 다운로드 한도 있음</small></li></ul></td><td><ul><li><a href="https://suno.com/pricing" target="_blank" rel="noopener">Suno</a> Pro 월 10달러 / Premier 월 30달러<small>연간 결제 시 할인, 상업 이용 가능</small></li></ul></td></tr><tr><th scope="row">음성</th><td><ul><li><a href="https://elevenlabs.io/" target="_blank" rel="noopener">ElevenLabs</a> 무료<small>비상업용</small></li></ul></td><td><ul><li><a href="https://elevenlabs.io/pricing" target="_blank" rel="noopener">ElevenLabs</a> Starter 월 5~6달러부터<small>상업 이용 가능</small></li></ul></td></tr><tr><th scope="row">영상</th><td><ul><li><a href="https://kling.ai/" target="_blank" rel="noopener">Kling</a> 무료 크레딧</li><li><a href="https://pika.art/" target="_blank" rel="noopener">Pika</a> 무료 플랜</li></ul></td><td><ul><li><a href="https://gemini.google/subscriptions/" target="_blank" rel="noopener">Google Veo</a><small>Google AI Pro 월 19.99달러</small></li><li><a href="https://kling.ai/" target="_blank" rel="noopener">Kling</a> · <a href="https://pika.art/" target="_blank" rel="noopener">Pika</a> · <a href="https://runwayml.com/" target="_blank" rel="noopener">Runway</a> 유료</li></ul></td></tr></tbody></table></div>
     </div>
   </section>
 
