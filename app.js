@@ -212,9 +212,9 @@
         dTitle.textContent = t.getAttribute('data-name');
         dBody.innerHTML = '';
         dBody.appendChild(t.content ? t.content.cloneNode(true) : document.createRange().createContextualFragment(t.innerHTML));
-        dBody.scrollTop = 0;
         document.documentElement.classList.add('dlg-open');
         if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+        dBody.scrollTop = 0;   // 창이 보인 다음에 맨 위로 (닫힌 동안에는 적용되지 않아요)
         return;
       }
       // 닫기 버튼 · 창 바깥(어두운 곳)을 누르면 닫혀요
