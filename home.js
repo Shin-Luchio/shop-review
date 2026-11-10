@@ -176,7 +176,8 @@
     fin.style.visibility = 'visible';
     var e = out4(p(t, K(28), K(28) + 0.18));
     var settle = inOut3(p(t, K(30), K(30) + 0.75));
-    var sc = lerp(1.3, 1, settle) * lerp(1.6, 1, e);
+    var big = Math.max(1, Math.min(1.3, 0.94 * W / (h2._w || W)));
+    var sc = lerp(big, 1, settle) * lerp(1.6, 1, e);
     headWrap.style.transform = 'translateY(' + lerp(finalOffset, 0, settle) + 'px) scale(' + sc + ')';
     headWrap.style.filter = e < 0.98 ? 'blur(' + ((1 - e) * 18).toFixed(1) + 'px)' : 'none';
     h1.style.opacity = 1;
@@ -390,11 +391,11 @@
     var PROG = [CH.Am, CH.F, CH.C, CH.G];
 
     // ── 1~2마디 · 타자 소리와 낮은 울림, 그리고 쌓이는 긴장
-    pad([55, 110, 164.81], T(0), T(7.5), 0.09, 1.4, 650, 0.03);
+    pad([55, 110, 164.81], T(0), T(7.5), 0.035, 1.4, 650, 0.03);
     var txt = $$('#a .ch');
     for (var i = 0; i < txt.length; i++) if (txt[i].textContent.trim()) tick(t0 + CH0 + i * CHD, 0.55);
     [4, 5, 6, 7].forEach(function (k, j) { kick(T(k), 0.45 + j * 0.13); });
-    riser(T(4), T(7.5), 0.2);
+    riser(T(4), T(7.5), 0.17);
     roll(T(6), T(7.5), 0.18, 0.75);
     // 7.5박 ~ 8박 · 완전한 정적
 
@@ -406,10 +407,10 @@
     for (var k = 8; k < 24; k++) {
       var ch = PROG[Math.floor((k - 8) / 4)];
       if (k > 8) kick(T(k), 0.95);
-      hat(T(k + 0.5), 0.2, true);
+      hat(T(k + 0.5), 0.24, true);
       if (k % 2 === 1) clap(T(k), 0.5);
-      bass(ch.root, T(k), B * 0.42, 0.26);
-      bass(ch.root, T(k + 0.5), B * 0.42, 0.38);
+      bass(ch.root, T(k), B * 0.42, 0.32);
+      bass(ch.root, T(k + 0.5), B * 0.42, 0.46);
       if (k >= 16) { hat(T(k + 0.25), 0.09, false); hat(T(k + 0.75), 0.09, false); }
       if ((k - 8) % 4 === 0 && k > 8) stab(ch.n, T(k), 0.45, 0.3);
     }
@@ -539,7 +540,7 @@
     var m = location.search.match(/[?&]t=([\d.]+)/);
     if (m) {
       var tt = +m[1];
-      resetVisuals(); gate.classList.add('gone'); body.classList.add('playing');
+      resetVisuals(); gate.style.display = 'none'; body.classList.add('playing');
       burstDone[8] = burstDone[28] = 1;
       render(tt);
       return;
