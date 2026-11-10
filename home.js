@@ -394,9 +394,9 @@
     var NOISE = bufs.noise, IR = bufs.ir;
     var bus = ctx.createGain(); bus.gain.value = gainOn ? 1 : 0; bus.connect(ctx.destination);
     var comp = ctx.createDynamicsCompressor();
-    comp.threshold.value = -14; comp.knee.value = 8; comp.ratio.value = 6; comp.attack.value = 0.003; comp.release.value = 0.18;
+    comp.threshold.value = -16; comp.knee.value = 8; comp.ratio.value = 8; comp.attack.value = 0.002; comp.release.value = 0.18;
     comp.connect(bus);
-    var master = ctx.createGain(); master.gain.value = 0.72; master.connect(comp);
+    var master = ctx.createGain(); master.gain.value = 0.64; master.connect(comp);
     var rev = ctx.createConvolver(); rev.buffer = IR; var revOut = ctx.createGain(); revOut.gain.value = 0.45; rev.connect(revOut); revOut.connect(master);
     function T(k) { return t0 + k * B; }
 
