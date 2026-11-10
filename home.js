@@ -18,6 +18,9 @@
       bar = $('#bar'), tcEl = $('#tc'), epEl = $('#ep'), hudl = $('#hudl');
   var W = innerWidth, H = innerHeight, DPR = Math.min(2, window.devicePixelRatio || 1);
   var reduce = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+  // 휴대폰처럼 손가락으로 쓰는 기기는 그래픽 메모리가 작아요 → 흐림 효과를 끄고 조각 수를 줄여요
+  var LOW = !!(window.matchMedia && matchMedia('(pointer: coarse)').matches) || Math.min(innerWidth, innerHeight) < 600;
+  if (LOW) DPR = 1;
 
   /* ── 수학 ── */
   function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
@@ -39,10 +42,17 @@
     el.style.fontSize = fs + 'px';
     el._w = w * fs / 100; el._h = h * fs / 100;
   }
-  var headWrap = $('#fin-head'), h1 = $('#h1'), h2 = $('#h2'), finalOffset = 0;
+  var headWrap = $('#fin-head'), h1 = $('#h1'), h2 = $('#h2'), finalOffset = 0, debugT = null;
   function layout() {
     W = innerWidth; H = innerHeight;
-    $$('[data-fw]').forEach(fit);
+    var all = $$('[data-fw]');
+    all.forEach(function (el) { el.style.display = ''; el._on = undefined; });
+    all.forEach(fit);
+    var rps = $$('.rp'), mn = 9999;
+    rps.forEach(function (el) { mn = Math.min(mn, parseFloat(el.style.fontSize)); });
+    rps.forEach(function (el) { el.style.fontSize = mn + 'px'; el._h = el.offsetHeight; });
+    $$('#stage .t').forEach(hide);
+    if (debugT != null) setTimeout(function () { render(debugT); }, 0);
     h1.style.fontSize = (parseFloat(h2.style.fontSize) * 0.5) + 'px';
     var prev = headWrap.style.transform; headWrap.style.transform = 'none';
     var r = headWrap.getBoundingClientRect();
@@ -51,16 +61,18 @@
     canvas.width = W * DPR; canvas.height = H * DPR; cx.setTransform(DPR, 0, 0, DPR, 0, 0);
   }
 
+  function show(el) { if (el._on !== true) { el.style.display = ''; el._on = true; } }
   function put(el, o) {
+    show(el);
     var s = 'translate(-50%,-50%) translate(' + (o.x || 0) + 'px,' + (o.y || 0) + 'px)';
     if (o.s != null && o.s !== 1) s += ' scale(' + o.s + ')';
     if (o.sk) s += ' skewX(' + o.sk + 'deg)';
     if (o.r) s += ' rotate(' + o.r + 'deg)';
     el.style.transform = s;
     el.style.opacity = o.o == null ? 1 : o.o;
-    el.style.filter = o.b > 0.3 ? 'blur(' + o.b.toFixed(1) + 'px)' : 'none';
+    el.style.filter = !LOW && o.b > 0.3 ? 'blur(' + o.b.toFixed(1) + 'px)' : 'none';
   }
-  function hide(el) { if (el.style.opacity !== '0') el.style.opacity = '0'; }
+  function hide(el) { if (el._on !== false) { el.style.display = 'none'; el._on = false; } }
   function within(t, a, b) { return t >= K(a) && t < K(b); }
 
   /* ═════════════ 장면 ═════════════ */
@@ -135,7 +147,7 @@
           break;
       }
     }
-    panel.style.opacity = dark ? 1 : 0;
+    panel.style.display = dark ? '' : 'none'; panel.style.opacity = dark ? 1 : 0;
   }
   // 1부 완성. 도장 (20~22박)
   var stamp = $('#stamp');
@@ -155,8 +167,9 @@
     put(q1, { y: y1 + 14 * (1 - e1), o: e1 * 0.75 * (1 - out) });
     var e2 = out3(p(t, K(23), K(23) + 0.4));
     put(q2, { y: y2 + 18 * (1 - e2), o: e2 * (1 - out) });
-    var x3 = p(t, K(24), K(24) + 0.6), fl = t < K(24) ? 0 : (x3 < 1 ? (Math.random() > 0.45 ? 1 : 0.12) : 1);
-    put(q3, { x: x3 < 1 && t >= K(24) ? (Math.random() - .5) * 10 : 0, o: fl * (1 - out) });
+    var d3 = t - K(24), blink = (d3 > 0.12 && d3 < 0.2) || (d3 > 0.34 && d3 < 0.4);
+    var fl = t < K(24) ? 0 : (blink ? 0.15 : 1);
+    put(q3, { x: d3 >= 0 && d3 < 0.45 ? (Math.random() - .5) * 8 : 0, o: fl * (1 - out) });
     var e4 = out3(p(t, K(24.6), K(24.6) + 0.4));
     put(q4, { y: y4 + 12 * (1 - e4), o: e4 * (1 - out) });
   }
@@ -213,7 +226,7 @@
       el._lab.style.opacity = el2; el._lab.style.transform = 'translateX(' + (36 * (1 - el2)) + 'px)';
       el._cap.style.opacity = out3(p(t, a + 0.24, a + 0.55));
     }
-    lines.style.opacity = within(t, 36, 44) ? 0.9 : 0;
+    var ln = within(t, 36, 44); lines.style.display = ln ? '' : 'none'; lines.style.opacity = ln ? 0.9 : 0;
   }
   // 묻고. 확인하고. 고치고. 저장하고. (44~48박)
   var fb = $('#fb'), fls = $$('#fb .fl');
@@ -229,12 +242,16 @@
   }
   // 회차 연속 플래시 (48~52박, 16분음표)
   var RP = $$('.rp').map(function (el) { return { el: el, a: K(+el.getAttribute('data-k')), ep: el.getAttribute('data-ep') }; });
+  // 깜빡이며 바뀌지 않고, 슬롯머신처럼 부드럽게 위로 굴러가요 (16분음표마다 한 칸)
+  function rollPos(t) { return clamp((t - K(48)) / (B / 4), 0, RP.length - 1); }
   function sX(t) {
+    if (!within(t, 48, 52)) { for (var j = 0; j < RP.length; j++) hide(RP[j].el); return; }
+    var pos = rollPos(t), fade = out3(p(t, K(48), K(48) + 0.12));
+    var step = (RP[0].el._h || H * 0.3) * 0.78;
     for (var i = 0; i < RP.length; i++) {
-      var r = RP[i], b = r.a + B / 4;
-      if (t < r.a || t >= b) { hide(r.el); continue; }
-      var e = out3(p(t, r.a, r.a + 0.06));
-      put(r.el, { s: lerp(1.18, 1, e) * (1 + i * 0.012), o: 1 });
+      var d = i - pos, ad = Math.abs(d);
+      if (ad > 2.4) { hide(RP[i].el); continue; }
+      put(RP[i].el, { y: d * step, s: 1 - Math.min(1, ad) * 0.4, o: clamp(1 - ad * 0.48, 0, 1) * fade });
     }
   }
   // 정적 · 그렇게, (52~54박)
@@ -259,7 +276,7 @@
     var big = Math.max(1, Math.min(1.3, 0.94 * W / (h2._w || W)));
     var sc = lerp(big, 1, settle) * lerp(1.6, 1, e);
     headWrap.style.transform = 'translateY(' + lerp(finalOffset, 0, settle) + 'px) scale(' + sc + ')';
-    headWrap.style.filter = e < 0.98 ? 'blur(' + ((1 - e) * 18).toFixed(1) + 'px)' : 'none';
+    headWrap.style.filter = !LOW && e < 0.98 ? 'blur(' + ((1 - e) * 18).toFixed(1) + 'px)' : 'none';
     h1.style.opacity = 1;
     h2.style.opacity = t >= K(HK) + 0.07 ? 1 : 0;
     rise(eye, t, K(HK + 2) + 0.15);
@@ -327,7 +344,7 @@
     tcEl.textContent = '00:' + (s < 10 ? '0' : '') + s + '.' + (cs < 10 ? '0' : '') + cs + ' / 00:30.00';
     var ep = '';
     for (i = 0; i < MW.length; i++) if (t >= MW[i].a && t < MW[i].b) ep = MW[i].ep;
-    for (i = 0; i < RP.length; i++) if (t >= RP[i].a && t < RP[i].a + B / 4) ep = RP[i].ep;
+    if (within(t, 48, 52)) ep = RP[Math.round(rollPos(t))].ep;
     for (i = 0; i < EPS.length; i++) if (within(t, EPS[i][0], EPS[i][1])) ep = EPS[i][2];
     epEl.textContent = ep ? ep + '회차' : '';
     var ch = 'AI로 웹사이트 만들기';
@@ -337,7 +354,7 @@
 
   /* ── 조각 터짐 ── */
   var parts = [], burstDone = {}, lastT = null;
-  var BURSTS = [[8, 40, ['#f6f1e9', '#e5604b'], 0.7], [28, 60, ['#f6f1e9', '#86b592'], 0.8], [54, 130, ['#e5604b', '#86b592', '#f3b545', '#f6f1e9'], 1.0]];
+  var BURSTS = [[8, LOW ? 20 : 40, ['#f6f1e9', '#e5604b'], 0.7], [28, LOW ? 30 : 60, ['#f6f1e9', '#86b592'], 0.8], [54, LOW ? 60 : 130, ['#e5604b', '#86b592', '#f3b545', '#f6f1e9'], 1.0]];
   function burst(n, cols, power) {
     for (var i = 0; i < n; i++) {
       var a = Math.random() * Math.PI * 2, sp = (0.3 + Math.random()) * Math.max(W, H) * power;
@@ -649,7 +666,7 @@
     fin.style.visibility = 'hidden';
     [eye, sub, ctl].concat(cta).forEach(function (el) { el.style.opacity = 0; });
     h1.style.opacity = 0; h2.style.opacity = 0;
-    $$('#stage .t').forEach(function (el) { el.style.opacity = 0; });
+    $$('#stage .t').forEach(hide);
     $$('.st-glitch').forEach(function (el) { el.style.textShadow = ''; });
     swI.forEach(function (el) { el.style.transform = 'scale(0)'; });
     pb.classList.remove('sent');
@@ -660,6 +677,7 @@
     stopMusic();
     layout(); resetVisuals();
     gate.classList.add('gone');
+    setTimeout(function () { if (gate.classList.contains('gone')) gate.style.display = 'none'; }, 450);
     body.classList.add('playing');
     setSound(withSound);
     running = true;
@@ -694,8 +712,8 @@
     body.classList.remove('playing');
     body.classList.add('is-final', 'show-nav');
     gate.classList.add('gone');
-    $$('#stage .t').forEach(function (el) { el.style.opacity = 0; });
-    flash.style.opacity = 0; ring.style.opacity = 0; panel.style.opacity = 0; lines.style.opacity = 0;
+    $$('#stage .t').forEach(hide);
+    flash.style.opacity = 0; ring.style.opacity = 0; panel.style.display = 'none'; lines.style.display = 'none';
     glow.style.opacity = 0.25; glow.style.transform = 'translate(-50%,-50%)';
     stage.style.transform = ''; fin.style.transform = '';
     fin.style.visibility = 'visible';
@@ -735,9 +753,10 @@
     // 확인용: 주소 끝에 ?t=7.5 처럼 붙이면 그 순간의 장면을 멈춘 채로 보여줘요
     var m = location.search.match(/[?&]t=([\d.]+)/);
     if (m) {
+      debugT = +m[1];
       resetVisuals(); gate.style.display = 'none'; body.classList.add('playing');
       for (var j = 0; j < BURSTS.length; j++) burstDone[BURSTS[j][0]] = 1;
-      render(+m[1]);
+      render(debugT);
       return;
     }
     // 이 사이트의 다른 화면에서 '홈'으로 돌아왔을 때만 끝 장면을 바로 보여줘요.
