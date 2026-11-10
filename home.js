@@ -247,7 +247,7 @@
   function sX(t) {
     if (!within(t, 48, 52)) { for (var j = 0; j < RP.length; j++) hide(RP[j].el); return; }
     var pos = rollPos(t), fade = out3(p(t, K(48), K(48) + 0.12));
-    var step = (RP[0].el._h || H * 0.3) * 0.78;
+    var step = (RP[0].el._h || H * 0.3) * 0.92;
     for (var i = 0; i < RP.length; i++) {
       var d = i - pos, ad = Math.abs(d);
       if (ad > 2.4) { hide(RP[i].el); continue; }

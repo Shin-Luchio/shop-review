@@ -107,6 +107,8 @@ body.home{background:var(--m-bg);color:var(--m-ink);overflow:hidden;height:100vh
 .final-bg i:nth-child(1){width:52vmax;height:52vmax;left:-14vmax;top:-18vmax;background:radial-gradient(closest-side,rgba(229,96,75,.75),rgba(229,96,75,0));animation:drift1 18s ease-in-out infinite alternate}
 .final-bg i:nth-child(2){width:44vmax;height:44vmax;right:-16vmax;bottom:-18vmax;background:radial-gradient(closest-side,rgba(134,181,146,.6),rgba(134,181,146,0));opacity:.45;animation:drift2 22s ease-in-out infinite alternate}
 .final-bg i:nth-child(3){width:26vmax;height:26vmax;right:12vmax;top:-10vmax;background:radial-gradient(closest-side,rgba(243,181,69,.5),rgba(243,181,69,0));opacity:.35;animation:drift1 26s ease-in-out infinite alternate-reverse}
+.final-bg i{animation-play-state:paused}
+.final-bg.on i,.is-final .final-bg i{animation-play-state:running}
 @keyframes drift1{to{transform:translate(8vmax,6vmax) scale(1.1)}}
 @keyframes drift2{to{transform:translate(-6vmax,-8vmax) scale(1.15)}}
 .fin-eye{font-size:15px;font-weight:700;letter-spacing:.14em;color:var(--m-dim);margin:0 0 18px}
