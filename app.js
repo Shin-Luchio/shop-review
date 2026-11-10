@@ -190,6 +190,38 @@
     Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
   }
 
+  /* ── 로고 · 아이콘 시안 창 (가게 둘러보기) ── */
+  var dlg = $('#bdlg');
+  if (dlg) {
+    var dBody = $('.bdlg__body', dlg), dTitle = $('#bdlg-title', dlg), opener = null;
+    var afterClose = function () {
+      document.documentElement.classList.remove('dlg-open');
+      if (opener) { try { opener.focus({ preventScroll: true }); } catch (e) { opener.focus(); } }
+    };
+    var closeDlg = function () {
+      if (typeof dlg.close === 'function') dlg.close();
+      else { dlg.removeAttribute('open'); afterClose(); }
+    };
+    dlg.addEventListener('close', afterClose);
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-brand]');
+      if (b) {
+        var t = document.getElementById('brand-' + b.getAttribute('data-brand'));
+        if (!t) return;
+        opener = b;
+        dTitle.textContent = t.getAttribute('data-name');
+        dBody.innerHTML = '';
+        dBody.appendChild(t.content ? t.content.cloneNode(true) : document.createRange().createContextualFragment(t.innerHTML));
+        document.documentElement.classList.add('dlg-open');
+        if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+        dBody.scrollTop = 0;   // 창이 보인 다음에 맨 위로 (닫힌 동안에는 적용되지 않아요)
+        return;
+      }
+      // 닫기 버튼 · 창 바깥(어두운 곳)을 누르면 닫혀요
+      if (dlg.hasAttribute('open') && (e.target === dlg || e.target.closest('[data-close]'))) closeDlg();
+    });
+  }
+
   /* ── 맨 위로 ── */
   var top = $('.top');
   if (top) {

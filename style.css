@@ -312,7 +312,44 @@ mark.ph.filled{background:rgba(134,181,146,.22);color:#a9d3b3}
 .shop[open] .sess__toggle{transform:rotate(180deg);border-color:var(--sage);color:var(--sage)}
 .shop__body{padding:6px 22px 26px;border-top:1px dashed var(--line)}
 .shop__body h4{font-size:15px;font-weight:800;color:var(--muted);letter-spacing:.04em;margin:24px 0 12px}
-.shop__link{margin-top:18px}
+.shop__link{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
+
+/* 로고 · 아이콘 시안 창 */
+html.dlg-open{overflow:hidden}
+.bdlg{padding:0;border:0;border-radius:24px;width:min(920px,calc(100% - 48px));max-width:none;max-height:calc(100vh - 48px);max-height:calc(100dvh - 48px);
+  background:var(--surface);color:var(--ink);box-shadow:0 30px 80px -20px rgba(0,0,0,.45);overflow:hidden}
+.bdlg:not([open]){display:none}
+.bdlg[open]{display:flex;flex-direction:column}
+.bdlg::backdrop{background:rgba(31,27,23,.55)}
+.bdlg__head{flex:none;display:flex;align-items:center;gap:12px;padding:16px 16px 14px 26px;border-bottom:1px solid var(--line)}
+.bdlg__head>div{flex:1;min-width:0}
+.bdlg__kicker{font-size:13px;font-weight:800;color:var(--sage);letter-spacing:.04em}
+.bdlg__head h2{font-size:22px}
+.bdlg__x{flex:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--surface);color:var(--ink);
+  font:inherit;font-size:26px;line-height:1;cursor:pointer;display:grid;place-items:center;padding:0 0 3px}
+.bdlg__x:hover{border-color:var(--terra);color:var(--terra-ink)}
+.bdlg__body{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:20px 26px 28px}
+.bdlg__top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding:16px 18px;border-radius:16px;background:var(--surface-2);border:1px solid var(--line)}
+.bdlg__top p{flex:1 1 320px;font-size:16px;color:var(--ink-2);line-height:1.6}
+.bdlg__top small{display:block;margin-top:6px;font-size:14px;color:var(--muted)}
+.bdlg__top .btn{flex:none}
+.bset{margin-top:26px}
+.bset h3{font-size:18px}
+.bset>p{font-size:15px;color:var(--muted);margin:2px 0 12px}
+.assets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.assets>:last-child:nth-child(odd){grid-column:1/-1}
+.asset{margin:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface);display:flex;flex-direction:column}
+.asset__view{height:128px;padding:18px 22px;display:flex;align-items:center;justify-content:center;gap:28px;background:#fff;border-bottom:1px solid var(--line)}
+.asset__view--dark{background:#1a1a1e;border-bottom-color:#1a1a1e}
+.asset__view img{display:block;width:100%;height:100%;min-width:0;object-fit:contain}
+.asset__view--trio img{width:64px;height:64px;flex:none}
+.asset__view--trio img:first-child{width:32px;height:32px}
+.asset figcaption{flex:1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 10px;padding:10px 12px 12px 16px}
+.asset figcaption b{font-size:15px;line-height:1.4}
+.asset__dl{display:flex;flex-wrap:wrap;gap:6px}
+.abtn{display:inline-flex;align-items:center;gap:4px;min-height:40px;padding:6px 14px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--surface);
+  color:var(--ink);font-size:14px;font-weight:700;text-decoration:none;white-space:nowrap}
+.abtn:hover{border-color:var(--terra);color:var(--terra-ink)}
 .pbars{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .pbar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px}
 .pbar__head{display:flex;justify-content:space-between;font-weight:800;font-size:16px}
@@ -452,6 +489,7 @@ mark.ph.filled{background:rgba(134,181,146,.22);color:#a9d3b3}
   .shop__icon{width:46px;height:46px;font-size:24px}
   .ring{width:58px;height:58px}.ring span{width:46px;height:46px}.ring b{font-size:18px}
   .shop__body{padding:4px 16px 20px}
+  .shop__link .btn{flex:1 1 auto;padding-left:12px;padding-right:12px;white-space:nowrap}
   .mini{grid-template-columns:repeat(2,1fr)}
   .pick{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .pick a{padding:12px;gap:2px 10px}
@@ -470,10 +508,20 @@ mark.ph.filled{background:rgba(134,181,146,.22);color:#a9d3b3}
   .nav__links{margin:0 auto;gap:0;overflow-x:auto;scrollbar-width:none;max-width:100%}
   .nav__links::-webkit-scrollbar{display:none}
   .nav__links a{padding:7px 9px;font-size:14px;white-space:nowrap}
+  /* 시안 창은 아래에서 올라오는 시트로 */
+  .bdlg{width:100%;max-height:92vh;max-height:92dvh;margin:auto 0 0;border-radius:20px 20px 0 0}
+  .bdlg__head{padding:12px 10px 12px 18px}
+  .bdlg__head h2{font-size:19px}
+  .bdlg__body{padding:16px 14px calc(24px + env(safe-area-inset-bottom))}
+  .bdlg__top{padding:14px}
+  .bdlg__top p{flex-basis:100%;font-size:15px}
+  .bdlg__top .btn{width:100%}
+  .assets{grid-template-columns:1fr}
+  .asset__view{height:108px}
 }
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{
-  .nav,.toc,.top,.searchbox,.fill,.copy,.toast,.act-row,.kfab,.dl{display:none!important}
+  .nav,.toc,.top,.searchbox,.fill,.copy,.toast,.act-row,.kfab,.dl,.bdlg,[data-brand]{display:none!important}
   body{background:#fff;font-size:12pt}
   .layout{display:block}
   .card,.prompt{box-shadow:none;break-inside:avoid}
