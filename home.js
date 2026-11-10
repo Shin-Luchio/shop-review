@@ -101,7 +101,7 @@
     var e3 = out3(p(t, K(6), K(6) + 0.3));
     put(b3, { y: (y3 + 30 * (1 - e3)) * grow, s: grow, o: e3 });
   }
-  // C · 만들어줘. (8~10박) — 첫 드롭
+  // C · 만들어주세요. (8~10박) — 첫 드롭
   var c1 = $('#c1'), c2 = $('#c2');
   function sC(t) {
     if (!within(t, 8, 10)) { hide(c1); hide(c2); return; }
@@ -112,7 +112,7 @@
   }
   // C2 · 프롬프트 입력 (10~12박)
   var pb = $('#pb'), pbCh = $$('#pb .ch'), pbCaret = $('#pb .caret');
-  var PB0 = K(10.15), PBD = (K(11.55) - K(10.15)) / 16;
+  var PB0 = K(10.15), PBD = (K(11.55) - K(10.15)) / Math.max(16, pbCh.length);
   function sP(t) {
     if (!within(t, 10, 12)) { hide(pb); return; }
     var e = out4(p(t, K(10), K(10) + 0.2)), fly = in3(p(t, K(11.75), K(12)));
@@ -538,7 +538,7 @@
     riser(T(4), T(7.5), 0.17);
     roll(T(6), T(7.5), 0.18, 0.75);
 
-    // ── 3마디 · 첫 드롭 "만들어줘." + 프롬프트 입력
+    // ── 3마디 · 첫 드롭 "만들어주세요." + 프롬프트 입력
     impact(T(8), 1.0);
     stab(CH.Am.n, T(8), 0.55, 0.42);
     for (k = 9; k < 12; k++) { kick(T(k), 0.8); hat(T(k + 0.5), 0.16, true); bass(110, T(k + 0.5), B * 0.4, 0.3); }
