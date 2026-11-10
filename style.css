@@ -137,6 +137,7 @@ p{margin:0}
 .fill input:focus{outline:none;border-color:var(--terra)}
 .fill small{flex-basis:100%;color:var(--muted);font-size:14px}
 
+#main{min-width:0}
 .layout{display:grid;grid-template-columns:232px minmax(0,1fr);gap:44px;align-items:start;padding-bottom:40px}
 .toc{position:sticky;top:calc(var(--nav-h) + 20px);max-height:calc(100vh - var(--nav-h) - 40px);overflow:auto;padding-right:6px}
 .toc p{font-size:14px;font-weight:800;letter-spacing:.06em;color:var(--muted);margin:0 0 8px}
@@ -355,7 +356,7 @@ mark.ph.filled{background:var(--sage-soft);color:var(--sage)}
 
 /* ═════════════ 화면 폭 ═════════════ */
 @media (max-width:1000px){
-  .layout{grid-template-columns:1fr;gap:0}
+  .layout{grid-template-columns:minmax(0,1fr);gap:0}
   .toc{position:static;max-height:none;overflow:visible;margin:0 0 28px;padding:0}
   .toc ol{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
   .toc a{border:1px solid var(--line-2);border-radius:999px;padding:6px 14px;background:var(--surface)}
