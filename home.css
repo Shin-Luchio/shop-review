@@ -42,10 +42,31 @@ body.home{background:var(--m-bg);color:var(--m-ink);overflow:hidden;height:100vh
 #a .caret{color:var(--m-terra);font-weight:300;margin-left:.04em}
 #b1,#g1{font-weight:700;color:var(--m-dim);letter-spacing:-.02em}
 #b3{font-weight:800}
-.w-outline{color:transparent;-webkit-text-stroke:.03em var(--m-ink)}
-.w-terra{color:var(--m-terra)}
-.w-dark{color:var(--m-bg)}
-.w-sun{color:var(--m-sun)}
+.st-outline{color:transparent;-webkit-text-stroke:.03em var(--m-ink)}
+.st-terra{color:var(--m-terra)}
+.st-dark{color:var(--m-bg)}
+.st-sun{color:var(--m-sun)}
+/* 프롬프트 입력창 */
+.pbox{display:inline-flex;align-items:center;gap:.5em;padding:.42em .42em .42em .9em;border:.055em solid rgba(246,241,233,.38);border-radius:.9em;
+  background:rgba(246,241,233,.06);font-weight:700;letter-spacing:-.025em}
+.pbox .ch{opacity:0}
+.pbox .caret{color:var(--m-terra);font-weight:300;margin-left:.04em}
+.pb-send{display:grid;place-items:center;width:1.45em;height:1.45em;border-radius:50%;background:rgba(246,241,233,.16);color:var(--m-ink);font-weight:800;font-size:.9em;transition:none}
+.pbox.sent .pb-send{background:var(--m-terra);color:#fff}
+/* 도장 */
+.stamp{color:var(--m-terra);border:.07em solid var(--m-terra);padding:.04em .32em .1em;border-radius:.14em;letter-spacing:-.03em}
+/* 자판 */
+.kbd{font-weight:800;letter-spacing:.02em;color:var(--m-ink);padding:.18em .6em;border:.07em solid rgba(246,241,233,.45);border-bottom-width:.2em;border-radius:.32em;background:rgba(246,241,233,.06)}
+.lines2{text-align:center;line-height:1.04}
+.lines2 .l1{font-size:.62em;font-weight:800;color:var(--m-ink)}
+.sw{display:flex;gap:.45em}
+.sw i{display:block;width:1em;height:1em;border-radius:50%;transform:scale(0)}
+.sw i:nth-child(1){background:var(--m-terra)}.sw i:nth-child(2){background:var(--m-sage)}.sw i:nth-child(3){background:var(--m-sun)}
+/* 회차 연속 플래시 */
+.rp{text-align:center;line-height:1}
+.rp b{display:block;font-weight:900;letter-spacing:-.06em;font-variant-numeric:tabular-nums}
+.rp small{display:block;font-size:.24em;font-weight:800;letter-spacing:-.02em;margin-top:.12em;color:var(--m-dim)}
+.rp.alt b{color:var(--m-terra)}
 .stat{text-align:center;font-weight:900}
 .stat-row{display:flex;align-items:baseline;justify-content:center;gap:.08em}
 .stat .num{font-variant-numeric:tabular-nums;text-align:right;letter-spacing:-.06em;line-height:.9}
