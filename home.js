@@ -729,6 +729,14 @@
     showFinal();
   }
 
+  /* ── 휴대폰 메뉴: 메뉴가 옆으로 넘칠 때 현재 메뉴가 화면 안에 보이게 밀어줘요 ── */
+  (function () {
+    var ul = document.querySelector('.nav__links'), cur = ul && ul.querySelector('[aria-current="page"]');
+    if (!ul || !cur || ul.scrollWidth <= ul.clientWidth) return;
+    var ur = ul.getBoundingClientRect(), cr = cur.getBoundingClientRect();
+    if (cr.left >= ur.left && cr.right <= ur.right) return;
+    ul.scrollLeft += (cr.left - ur.left) - (ur.width - cr.width) / 2;
+  })();
   /* ── 카카오톡: 휴대폰에서는 바로 채팅(앱이 열려요), PC는 채널 홈 ── */
   try {
     if (window.matchMedia && matchMedia('(pointer: coarse)').matches) {
