@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 크리에이티브 체험 · 우리 가게 수업 노트</title>
-<meta name="description" content="쇼핑몰 과정을 마친 뒤 진행하는 Extra 강의. 생성형 AI로 내 가게의 로고·파비콘·BGM·CM송·홍보 영상을 만들어 봐요. 진행표, 무료·유료 서비스, 주의사항, 미션까지.">
+<meta name="description" content="쇼핑몰 과정을 마친 뒤 진행하는 Extra 강의. 생성형 AI로 내 가게의 로고·파비콘·BGM·CM송·홍보 영상을 만들어 봐요. 무료·유료 서비스, 주의사항, 미션과 미션별 프롬프트까지.">
 <meta name="theme-color" content="#b85042">
 <link rel="canonical" href="https://shin-luchio.github.io/shop-review/extra.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="우리 가게 수업 노트">
 <meta property="og:title" content="AI 크리에이티브 체험 · 우리 가게 수업 노트">
-<meta property="og:description" content="쇼핑몰 과정을 마친 뒤 진행하는 Extra 강의. 생성형 AI로 내 가게의 로고·파비콘·BGM·CM송·홍보 영상을 만들어 봐요. 진행표, 무료·유료 서비스, 주의사항, 미션까지.">
+<meta property="og:description" content="쇼핑몰 과정을 마친 뒤 진행하는 Extra 강의. 생성형 AI로 내 가게의 로고·파비콘·BGM·CM송·홍보 영상을 만들어 봐요. 무료·유료 서비스, 주의사항, 미션과 미션별 프롬프트까지.">
 <meta property="og:url" content="https://shin-luchio.github.io/shop-review/extra.html">
 <meta property="og:image" content="https://shin-luchio.github.io/shop-review/og.png">
 <meta property="og:image:width" content="1200">
@@ -70,8 +70,155 @@
   </section>
 
   <section class="section" id="missions">
-    <div class="section__head"><div><span class="kicker">MISSIONS</span><h2>미션 카드</h2><p>오후 '브랜드 에셋 미션' 시간에 해요.</p></div></div>
-    <ul class="principles"><li class="card"><span class="ico" aria-hidden="true">🎨</span><h3>미션 1 · 로고</h3><p>내 사이트 한 줄 소개로 로고 시안 3개를 만들고 1개를 골라요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🧩</span><h3>미션 2 · 파비콘 · 앱 아이콘</h3><p>고른 로고로 파비콘과 앱 아이콘을 만들어 내 사이트에 적용해요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🎵</span><h3>미션 3 · CM송</h3><p>가사를 직접 써서 15초 CM송을 만들어요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🎬</span><h3>미션 4 · 홍보 영상</h3><p>로고 이미지를 5초 홍보 영상으로 만들고 CM송을 입혀요.</p><small>조별</small></li></ul>
+    <div class="section__head"><div><span class="kicker">MISSIONS</span><h2>미션 카드</h2><p>미션 1~4는 오후 &#x27;브랜드 에셋 미션&#x27; 시간에 해요. 미션 5는 쇼핑몰과 상관없는 자유 미션이에요.</p></div></div>
+    <ul class="principles"><li class="card"><span class="ico" aria-hidden="true">🎨</span><h3>미션 1 · 로고</h3><p>내 사이트 한 줄 소개로 로고 시안 3개를 만들고 1개를 골라요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🧩</span><h3>미션 2 · 파비콘 · 앱 아이콘</h3><p>고른 로고로 파비콘과 앱 아이콘을 만들어 내 사이트에 적용해요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🎵</span><h3>미션 3 · CM송</h3><p>가사를 직접 써서 15초 CM송을 만들어요.</p><small>개인</small></li><li class="card"><span class="ico" aria-hidden="true">🎬</span><h3>미션 4 · 홍보 영상</h3><p>로고 이미지를 5초 홍보 영상으로 만들고 CM송을 입혀요.</p><small>조별</small></li><li class="card"><span class="ico" aria-hidden="true">🎮</span><h3>미션 5 · 미니 게임</h3><p>쇼핑몰과 상관없이, 좋아하는 주제로 1분짜리 간단한 게임을 만들어요.</p><small>개인</small></li></ul>
+  </section>
+
+  <section class="section" id="mission-prompts">
+    <div class="section__head"><div><span class="kicker">PROMPTS</span><h2>미션별 프롬프트</h2><p>미션 1~4는 Claude가 내 쇼핑몰을 읽고 각 서비스에 넣을 프롬프트를 대신 써 줘요. 미션 5는 Claude Code가 게임을 바로 만들어요.</p></div></div>
+    <div class="card method">
+      <p class="sub note note--warm">미션 1~4는 내 쇼핑몰 폴더에서 연 Claude Code에 붙여넣으세요. [ ] 칸이 있으면 내 것으로 바꿔요. Claude가 만든 프롬프트를 다시 복사해서 미션마다 적힌 서비스에 넣으면 돼요. 모두 무료 서비스로 할 수 있어요 (2026년 11월 기준). 미션 5는 쇼핑몰 폴더가 아닌 새 폴더에서 해요.</p>
+      <ul class="legend"><li><b>순서</b>&nbsp; Claude Code에 붙여넣기 → Claude가 사이트를 읽고 프롬프트 작성 → 서비스에 붙여넣고 만들기</li></ul>
+    </div>
+    <div class="apply"><div class="apply__item" id="mp-logo"><p class="apply__why"><b>🎨 미션 1 · 로고</b></p><p class="apply__why"><span>넣을 곳</span><span><a href="https://www.recraft.ai/" target="_blank" rel="noopener">Recraft ↗</a></span></p>
+<div class="prompt prompt--prompt">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">PROMPT</span><span class="prompt__where">Claude Code에 붙여넣기</span></span>
+    <button class="copy" type="button" data-target="mp-logo-pre" aria-label="로고 시안 3개 → Recraft 프롬프트 만들기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 1</span>로고 시안 3개 → Recraft 프롬프트 만들기</p>
+  <pre id="mp-logo-pre">이 프로젝트(내 쇼핑몰)의 코드를 읽고 로고를 만들 준비를 도와줘. 파일은 고치지 말고 읽기만 해줘.
+
+1단계 · 사이트 분석
+- 가게 이름, 무엇을 파는지, 주로 찾는 손님
+- 사이트 분위기를 나타내는 단어 3개
+- 지금 쓰는 대표 색 2~3개 (색 코드 포함)
+분석한 내용을 5줄 이내로 먼저 보여줘.
+
+2단계 · Recraft에 넣을 로고 프롬프트 3개
+로고 · 아이콘 디자인 서비스인 Recraft에 그대로 붙여넣을 수 있게, 서로 다른 방향으로 3개 써줘.
+- A: 가게 이름 글자만 있는 로고
+- B: 작은 그림(심볼) + 가게 이름
+- C: 심볼만 있는 로고 (미션 2에서 앱 아이콘으로 쓰기 좋게)
+프롬프트마다 지킬 것
+- 영어로 쓰고, 가게 이름은 따옴표 안에 정확히 넣기
+- 흰 배경, 단순한 평면 디자인, 그림자나 사진 효과 없이
+- 1단계에서 찾은 색 코드 쓰기
+- 실존 브랜드나 유명 캐릭터를 닮지 않게
+- Recraft에서 고르면 좋은 스타일(예: 로고, 아이콘, 벡터)과 한국어 설명 한 줄 붙이기</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">Recraft는 매일 무료 크레딧이 다시 채워지고, 한 번에 2장씩 만들어져요. 무료로 만든 그림은 공개 갤러리에 올라가요. 한글 가게 이름이 깨져 나오면 C(심볼만)로 만들고, 글자는 Canva에서 따로 넣어요.</span></p></div><div class="apply__item" id="mp-icon"><p class="apply__why"><b>🧩 미션 2 · 파비콘 · 앱 아이콘</b></p><p class="apply__why"><span>넣을 곳</span><span><a href="https://realfavicongenerator.net/" target="_blank" rel="noopener">RealFaviconGenerator ↗</a></span></p>
+<div class="prompt prompt--prompt">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">PROMPT</span><span class="prompt__where">Claude Code에 붙여넣기</span></span>
+    <button class="copy" type="button" data-target="mp-icon-pre" aria-label="고른 로고 → RealFaviconGenerator 설정값 만들기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 2</span>고른 로고 → RealFaviconGenerator 설정값 만들기</p>
+  <pre id="mp-icon-pre">이 프로젝트(내 쇼핑몰)의 코드를 읽고 파비콘과 앱 아이콘을 만들 준비를 도와줘. 파일은 고치지 말고 읽기만 해줘.
+
+고른 로고: <mark class="ph" data-ph="고른 로고를 한 줄로 설명">[고른 로고를 한 줄로 설명]</mark>
+
+1단계 · 사이트 확인
+- 이 사이트를 만든 방식 (예: Next.js)과 지금 파비콘 파일이 있는지
+- 가게 이름과 사이트 대표 색 1개 (색 코드)
+
+2단계 · RealFaviconGenerator에서 고를 값
+고른 로고 이미지를 파비콘 전용 서비스인 RealFaviconGenerator에 올릴 거야.
+화면에서 정해야 하는 값을 미리 정리해줘.
+- 아이폰 · 안드로이드 아이콘의 배경색 (색 코드)과 여백 정도
+- 휴대폰 홈 화면에 보일 앱 이름 (짧게)
+- 값마다 고른 이유 한 줄
+
+3단계 · 다음 순서 안내
+받은 파일과 코드를 이 프로젝트 어디에 넣으면 되는지 짧게 알려줘.
+실제로 넣는 건 내가 확인한 뒤에 따로 부탁할게.</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">RealFaviconGenerator는 무료예요. 심볼만 있는 로고(미션 1의 C)를 올리면 작게 봐도 또렷해요. 아이폰 · 안드로이드에서 어떻게 보일지 바로 보여 주고, 넣는 방법도 알려줘요. 내 사이트에 넣기 전에는 지금 상태를 저장(커밋)해 두고 Claude Code에 부탁해요.</span></p></div><div class="apply__item" id="mp-song"><p class="apply__why"><b>🎵 미션 3 · CM송</b></p><p class="apply__why"><span>넣을 곳</span><span><a href="https://suno.com/" target="_blank" rel="noopener">Suno ↗</a></span></p>
+<div class="prompt prompt--prompt">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">PROMPT</span><span class="prompt__where">Claude Code에 붙여넣기</span></span>
+    <button class="copy" type="button" data-target="mp-song-pre" aria-label="내가 쓴 가사 → Suno 입력값 만들기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 3</span>내가 쓴 가사 → Suno 입력값 만들기</p>
+  <pre id="mp-song-pre">이 프로젝트(내 쇼핑몰)의 코드를 읽고 우리 가게 CM송을 만들 준비를 도와줘. 파일은 고치지 말고 읽기만 해줘.
+
+내가 쓴 가사: <mark class="ph" data-ph="여기에 내가 쓴 가사 2~4줄">[여기에 내가 쓴 가사 2~4줄]</mark>
+
+1단계 · 사이트 분석
+가게 이름, 파는 것, 손님, 분위기 단어 3개를 3줄로 정리해줘.
+
+2단계 · 가사 다듬기
+내 가사의 뜻은 그대로 두고, 15초 안에 부르기 좋게 4줄 이내로 다듬어줘.
+가게 이름이 한 번은 꼭 들어가게 하고, 바꾼 이유를 한 줄로 알려줘.
+
+3단계 · Suno에 넣을 값
+노래 만들기 서비스인 Suno의 직접 입력(Custom) 화면에 그대로 붙여넣을 수 있게, 칸별로 나눠서 써줘.
+- 제목: 짧게
+- 스타일: 영어로, 장르 · 분위기 · 빠르기(BPM) · 악기 · 목소리 느낌을 쉼표로 이어서
+- 가사: 다듬은 가사를 한국어 그대로, Intro · Verse · Chorus · End 같은 구조 태그를 대괄호로 감싸서 붙이기
+- 15초 남짓한 밝은 광고 노래(징글)가 되게 가사는 짧게, 마지막에 End 태그 넣기
+- 실제 가수 이름이나 유명한 곡 제목은 넣지 않기</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">Suno 무료는 하루 50크레딧(약 10곡)으로 만들고, 듣기와 링크 공유는 마음껏 할 수 있어요. 내려받기는 무료 계정당 평생 7곡까지(개인용)라서, 마음에 드는 1곡만 MP3로 받아 미션 4에서 써요. 노래가 15초보다 길게 나오면 Canva에서 앞부분만 잘라 써요.</span></p></div><div class="apply__item" id="mp-video"><p class="apply__why"><b>🎬 미션 4 · 홍보 영상</b></p><p class="apply__why"><span>넣을 곳</span><span><a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener">Google Flow ↗</a> · <a href="https://www.canva.com/" target="_blank" rel="noopener">Canva ↗</a></span></p>
+<div class="prompt prompt--prompt">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">PROMPT</span><span class="prompt__where">Claude Code에 붙여넣기</span></span>
+    <button class="copy" type="button" data-target="mp-video-pre" aria-label="로고 이미지 → Google Flow 영상 프롬프트 만들기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 4</span>로고 이미지 → Google Flow 영상 프롬프트 만들기</p>
+  <pre id="mp-video-pre">이 프로젝트(내 쇼핑몰)의 코드를 읽고 우리 가게 홍보 영상을 만들 준비를 도와줘. 파일은 고치지 말고 읽기만 해줘.
+
+1단계 · 사이트 분석
+가게 이름, 파는 것, 분위기 단어 3개, 대표 색 2개(색 코드)를 3줄로 정리해줘.
+
+2단계 · Google Flow 영상 프롬프트 2개
+Google Flow의 &#x27;프레임으로 동영상 만들기&#x27;에서 로고 이미지를 첫 장면으로 쓸 거야.
+그대로 붙여넣을 수 있게, 서로 다른 느낌으로 2개 써줘.
+- 영어로, 한 단락
+- 첫 장면은 로고 그대로 시작하고, 로고 모양과 글자는 바꾸지 않기
+- 무엇이 어떻게 움직이는지, 카메라 움직임, 빛과 색, 분위기를 차례로
+- 4~6초 안에 끝나는 간단한 움직임 하나
+- 소리는 음악과 말소리 없이 (CM송은 나중에 따로 입혀요)
+- 사람 얼굴, 실존 인물, 다른 브랜드는 나오지 않게
+- 프롬프트마다 한국어 설명 한 줄</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">Google Flow는 구독 없이 하루 50크레딧을 줘요. Veo 3.1 Lite 영상 1개에 10크레딧이라 조원끼리 나눠 써요. 길이는 4초나 6초를 고르고, 다 만든 영상과 CM송 MP3는 Canva 동영상 편집에서 합쳐요.</span></p></div><div class="apply__item" id="mp-game"><p class="apply__why"><b>🎮 미션 5 · 미니 게임</b></p><p class="apply__why"><span>만드는 곳</span><span>새 폴더에서 연 Claude Code</span></p>
+<div class="prompt prompt--prompt">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">PROMPT</span><span class="prompt__where">Claude Code에 붙여넣기</span></span>
+    <button class="copy" type="button" data-target="mp-game-pre" aria-label="간단한 게임 만들기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 5</span>간단한 게임 만들기</p>
+  <pre id="mp-game-pre">쇼핑몰과는 상관없는 간단한 게임을 하나 만들고 싶어. 아래대로 도와줘.
+
+만들 게임: <mark class="ph" data-ph="만들 게임 예) 두더지 잡기">[만들 게임 예) 두더지 잡기]</mark>
+게임 주제나 분위기: <mark class="ph" data-ph="좋아하는 주제 예) 우리 집 강아지">[좋아하는 주제 예) 우리 집 강아지]</mark>
+
+먼저 확인할 것
+- 지금 연 폴더가 내 쇼핑몰 폴더라면 아무것도 만들지 말고 알려줘.
+
+만들기 전에
+- 게임 규칙과 화면 구성을 5줄 이내로 먼저 보여주고, 내가 좋다고 하면 만들어줘.
+
+만들 때 지킬 것
+- index.html 파일 하나에 모두 넣기 (설치 없이 더블클릭하면 열리게)
+- 휴대폰 터치와 PC 마우스 둘 다 되게
+- 글씨와 버튼은 크게, 1분 안에 끝나는 짧은 판
+- 시작 버튼, 점수, 다시 하기 버튼
+- 최고 점수는 이 브라우저에만 저장
+- 그림은 이모지나 도형으로만 (인터넷 이미지 쓰지 않기)
+- 유명한 게임 이름이나 캐릭터는 쓰지 않기
+
+다 만들면 여는 방법을 한 줄로 알려줘.</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">바탕화면에 새 폴더(예: my-game)를 만들고 그 폴더에서 Claude Code를 열어요. 게임 예시: 두더지 잡기 · 카드 짝 맞추기 · 숫자 업다운 · 반응 속도 재기 · OX 퀴즈 · 떨어지는 물건 피하기.</span></p>
+<div class="prompt prompt--example">
+  <div class="prompt__bar">
+    <span class="prompt__meta"><span class="prompt__kind">예시</span><span class="prompt__where">한 줄씩 골라 보내기</span></span>
+    <button class="copy" type="button" data-target="mp-game-pre2" aria-label="한 번에 하나씩 다듬기 복사">📋 <span>복사</span></button>
+  </div>
+  <p class="prompt__title"><span class="tag">미션 5</span>한 번에 하나씩 다듬기</p>
+  <pre id="mp-game-pre2">처음엔 쉽게, 점수가 오를수록 조금씩 빨라지게 해줘.
+맞히면 짧은 효과음이 나게 하고, 소리 끄기 버튼도 넣어줘.
+게임이 끝나면 내 점수를 크게 보여주고, 다시 하기를 누르면 바로 시작되게 해줘.
+휴대폰에서 버튼이 작아. 손가락으로 누르기 쉽게 키워줘.
+색을 <mark class="ph" data-ph="좋아하는 색">[좋아하는 색]</mark> 느낌으로 바꿔줘.</pre>
+</div><p class="tip"><span class="tip__k">💡 도움말</span><span class="tip__t">한 번에 한 줄씩 보내고, 고칠 때마다 게임을 다시 열어 확인해요. 마음에 들면 8회차에 배운 GitHub Pages로 올려서 주소를 친구에게 보내 봐요.</span></p></div></div>
   </section>
 </main>
 
