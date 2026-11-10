@@ -53,6 +53,18 @@
     });
   });
 
+  /* ── 카카오톡 (주소를 아직 넣지 않았을 때) ── */
+  document.addEventListener('click', function (e) {
+    var k = e.target.closest('[data-kakao-pending]');
+    if (k) { e.preventDefault(); toast('카카오톡 연결을 준비하고 있어요. 수업 시간에 물어봐 주세요'); }
+    var c = e.target.closest('[data-copylink]');
+    if (c) {
+      e.preventDefault();
+      var url = location.href.split('#')[0].split('?')[0] + c.getAttribute('href');
+      copyText(url).then(function (ok) { toast(ok ? '질문 주소를 복사했어요' : '복사가 안 됐어요'); });
+    }
+  });
+
   /* ── 내 정보로 채우기 (이 화면에서만, 저장하지 않음) ── */
   $$('[data-fill]').forEach(function (input) {
     var key = input.getAttribute('data-fill');
@@ -119,9 +131,33 @@
       });
       if (count) count.textContent = searching ? (n ? n + '개를 찾았어요' : '') : '';
       if (empty) empty.classList.toggle('show', searching && n === 0);
+      highlight(words);
+    }
+    // 찾은 말을 질문 글자에 노랗게 칠해요 (FAQ)
+    var hls = $$('[data-hl]');
+    hls.forEach(function (el) { el.setAttribute('data-orig', el.textContent); });
+    function esc(x) { return x.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function highlight(words) {
+      hls.forEach(function (el) {
+        var orig = el.getAttribute('data-orig'), out = esc(orig);
+        if (words.length) {
+          var re = new RegExp('(' + words.map(function (w) { return esc(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'gi');
+          out = out.replace(re, '<mark class="hl">$1</mark>');
+        }
+        el.innerHTML = out;
+      });
     }
     var clear = $('#q-clear');
     if (clear) clear.addEventListener('click', function () { q.value = ''; run(); q.focus(); });
+    // 자주 찾는 말 버튼
+    $$('.hot').forEach(function (b) {
+      b.addEventListener('click', function () { q.value = b.getAttribute('data-q'); run(); q.focus(); });
+    });
+    // 주소에 ?q=키 처럼 붙이면 그 말로 찾아둔 채 열려요
+    try {
+      var pre = new URLSearchParams(location.search).get('q');
+      if (pre) { q.value = pre; run(); }
+    } catch (e) {}
   }
 
   /* ── 목차 현재 위치 ── */

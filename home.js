@@ -147,7 +147,7 @@
           break;
       }
     }
-    panel.style.display = dark ? '' : 'none'; panel.style.opacity = dark ? 1 : 0;
+    panel.style.display = dark ? 'block' : 'none'; panel.style.opacity = dark ? 1 : 0;
   }
   // 1부 완성. 도장 (20~22박)
   var stamp = $('#stamp');
@@ -226,7 +226,7 @@
       el._lab.style.opacity = el2; el._lab.style.transform = 'translateX(' + (36 * (1 - el2)) + 'px)';
       el._cap.style.opacity = out3(p(t, a + 0.24, a + 0.55));
     }
-    var ln = within(t, 36, 44); lines.style.display = ln ? '' : 'none'; lines.style.opacity = ln ? 0.9 : 0;
+    var ln = within(t, 36, 44); lines.style.display = ln ? 'block' : 'none'; lines.style.opacity = ln ? 0.9 : 0;
   }
   // 묻고. 확인하고. 고치고. 저장하고. (44~48박)
   var fb = $('#fb'), fls = $$('#fb .fl');
