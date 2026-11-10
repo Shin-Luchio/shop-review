@@ -91,8 +91,6 @@
     if (!el) return;
     var d = el.tagName === 'DETAILS' ? el : el.closest('details');
     if (d) d.open = true;
-    var inner = el.querySelector && el.querySelector(':scope > details');
-    if (inner) inner.open = true;
     setTimeout(function () { el.scrollIntoView({ block: 'start' }); }, 30);
   }
   window.addEventListener('hashchange', openFromHash);
