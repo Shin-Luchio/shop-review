@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대시보드 · 우리 가게 수업 노트</title>
+<meta name="description" content="AI로 웹사이트 만들기 수업에서 배운 것을 다시 찾아보고, 프롬프트를 복사해 바로 쓰고, 우리가 만든 가게 11곳을 손님 눈으로 둘러봐요.">
+<meta name="theme-color" content="#b85042">
+<link rel="canonical" href="https://shin-luchio.github.io/shop-review/dashboard.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="우리 가게 수업 노트">
+<meta property="og:title" content="대시보드 · 우리 가게 수업 노트">
+<meta property="og:description" content="AI로 웹사이트 만들기 수업에서 배운 것을 다시 찾아보고, 프롬프트를 복사해 바로 쓰고, 우리가 만든 가게 11곳을 손님 눈으로 둘러봐요.">
+<meta property="og:url" content="https://shin-luchio.github.io/shop-review/dashboard.html">
+<meta property="og:image" content="https://shin-luchio.github.io/shop-review/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23b85042'/><text x='50' y='68' font-size='56' text-anchor='middle'>🛍️</text></svg>">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<a class="skip" href="#main">본문으로 바로 가기</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true">🛍️</span><span class="brand__txt">우리 가게 수업 노트</span></a>
+  <ul class="nav__links"><li><a href="index.html">홈</a></li><li><a href="dashboard.html" aria-current="page">대시보드</a></li><li><a href="guide.html">수업 노트</a></li><li><a href="review.html">가게 둘러보기</a></li></ul>
+</div></header>
+
+<main id="main">
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">📊 대시보드 · AI로 웹사이트 만들기</span>
+  <h1>AI와 함께 만든 우리 가게,<br><em>한눈에 다시 보기</em></h1>
+  <p class="lead">수업에서 배운 도구와 핵심을 짧게 정리했어요. 프롬프트는 복사해서 바로 쓰고, 우리가 만든 가게도 손님 눈으로 둘러보세요.</p>
+  <div class="hero__cta">
+    <a class="btn btn--primary" href="guide.html">📘 수업 노트 보기</a>
+    <a class="btn btn--ghost" href="review.html">🏪 가게 둘러보기</a>
+  </div>
+  <ul class="stats">
+    <li><b>19</b><span>회차 요약 (5~23회차)</span></li>
+    <li><b>94</b><span>복사해서 쓰는 프롬프트</span></li>
+    <li><b>8</b><span>함께 쓴 도구</span></li>
+    <li><b>11</b><span>둘러본 가게</span></li>
+  </ul>
+</div></section>
+
+<div class="wrap">
+  <section class="section">
+    <div class="doors">
+      <a class="door door--guide" href="guide.html">
+        <span class="door__icon" aria-hidden="true">📘</span>
+        <h3>수업 노트</h3>
+        <p>회차별 핵심과 프롬프트, 도구 비유, 막혔을 때 보는 곳까지. 찾기와 복사 버튼이 있어요.</p>
+        <ul><li>회차별 요약</li><li>매번 쓰는 프롬프트</li><li>이럴 땐 이렇게</li><li>쉬운 말 사전</li></ul>
+        <span class="door__go">수업 노트 열기 →</span>
+      </a>
+      <a class="door door--review" href="review.html">
+        <span class="door__icon" aria-hidden="true">🏪</span>
+        <h3>가게 둘러보기</h3>
+        <p>여러분이 만든 가게 11곳을 손님 5명의 눈으로 살펴봤어요. 잘된 점과 다음 한 걸음을 적었어요.</p>
+        <ul><li>손님 5명</li><li>8가지 항목</li><li>가게별 결과</li></ul>
+        <span class="door__go">가게 둘러보기 →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__head"><div><span class="kicker">OUR ROAD</span><h2>우리가 지나온 길</h2><p>회차를 누르면 그 회차 노트로 가요.</p></div></div>
+    <div class="road"><div class="card road__part"><h3>1부 · 파일 하나로 시작한 쇼핑몰</h3><p>5~17회차 · index.html 하나로 시작해서 GitHub Pages에 공개하고, Supabase로 회원 · 상품 · 장바구니 · 주문까지 붙였어요.</p><ol><li class="part1"><a href="guide.html#s5"><span class="dot">5</span><span class="t">내 쇼핑몰 첫 화면 만들기<small>Claude Code, VS Code</small></span></a></li><li class="part1"><a href="guide.html#s6"><span class="dot">6</span><span class="t">상품이 제대로 보이는 쇼핑몰<small>Claude Code</small></span></a></li><li class="part1"><a href="guide.html#s7"><span class="dot">7</span><span class="t">내 사이트를 GitHub에 저장하기<small>GitHub, Claude Code</small></span></a></li><li class="part1"><a href="guide.html#s8"><span class="dot">8</span><span class="t">인터넷에 공개하기<small>GitHub Pages, GitHub</small></span></a></li><li class="part1"><a href="guide.html#s9"><span class="dot">9</span><span class="t">장바구니 · 어느 컴퓨터에서든 이어서<small>GitHub, Claude Code</small></span></a></li><li class="part1"><a href="guide.html#s10"><span class="dot">10</span><span class="t">회원가입 (Supabase 시작)<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s11"><span class="dot">11</span><span class="t">로그인 · 로그아웃<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s12"><span class="dot">12</span><span class="t">상품을 Database에서 관리<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s13"><span class="dot">13</span><span class="t">장바구니를 Database에 저장<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s14"><span class="dot">14</span><span class="t">주문서 만들기<small>Claude Code</small></span></a></li><li class="part1"><a href="guide.html#s15"><span class="dot">15</span><span class="t">주문 저장하기<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s16"><span class="dot">16</span><span class="t">주문내역 보기<small>Supabase</small></span></a></li><li class="part1"><a href="guide.html#s17"><span class="dot">17</span><span class="t">완성도 높이기<small>Claude Code</small></span></a></li></ol></div><div class="card road__part"><h3>2부 · Next.js로 이사하기</h3><p>18~23회차 · 검색엔진이 상품을 보게 하고 금액을 가게가 다시 계산하도록, Next.js와 Vercel로 옮기고 우리 가게답게 꾸몄어요.</p><ol><li class="part2"><a href="guide.html#s18"><span class="dot">18</span><span class="t">Node와 Next.js 시작하기<small>Node · npm, Next.js, GitHub</small></span></a></li><li class="part2"><a href="guide.html#s19"><span class="dot">19</span><span class="t">Vercel로 인터넷에 올리기<small>Vercel, Supabase</small></span></a></li><li class="part2"><a href="guide.html#s20"><span class="dot">20</span><span class="t">상품 목록 옮기기<small>Next.js, Supabase</small></span></a></li><li class="part2"><a href="guide.html#s21"><span class="dot">21</span><span class="t">남은 기능 한 번에 옮기기<small>Next.js, GitHub</small></span></a></li><li class="part2"><a href="guide.html#s22"><span class="dot">22</span><span class="t">금액은 가게가 다시 계산해요<small>Next.js, Supabase</small></span></a></li><li class="part2"><a href="guide.html#s23"><span class="dot">23</span><span class="t">우리 가게답게 만들기<small>Next.js, Claude Code</small></span></a></li></ol></div></div>
+  </section>
+
+  <section class="section">
+    <div class="section__head"><div><span class="kicker">QUICK</span><h2>자주 찾는 것</h2></div></div>
+    <div class="quick"><a class="card" href="guide.html#c-start2"><span class="q-ico" aria-hidden="true">🚀</span><span><b>2부 시작 절차</b><small>새 노트북에서 내 작업 가져오기</small></span></a><a class="card" href="guide.html#c-safe"><span class="q-ico" aria-hidden="true">🛡️</span><span><b>안전 프롬프트</b><small>고치기 전에 먼저 붙이는 다섯 줄</small></span></a><a class="card" href="guide.html#c-save1"><span class="q-ico" aria-hidden="true">💾</span><span><b>GitHub에 저장하기</b><small>끝나기 전에 꼭</small></span></a><a class="card" href="guide.html#c-undo"><span class="q-ico" aria-hidden="true">↩️</span><span><b>되돌리기</b><small>이상해지면 바로</small></span></a><a class="card" href="guide.html#t-1"><span class="q-ico" aria-hidden="true">🫙</span><span><b>상품이 안 나와요</b><small>Supabase 멈춤 · 읽기 문 · Vercel 키</small></span></a><a class="card" href="guide.html#s19"><span class="q-ico" aria-hidden="true">🔑</span><span><b>키는 어디에 넣나요</b><small>.env.local 과 Vercel 두 곳</small></span></a></div>
+  </section>
+</div>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <p>AI로 웹사이트 만들기 수업 · 우리 가게 수업 노트<br>궁금한 점은 수업 시간에 편하게 물어봐 주세요.</p>
+  <p><a href="index.html">홈</a> · <a href="dashboard.html">대시보드</a> · <a href="guide.html">수업 노트</a> · <a href="review.html">가게 둘러보기</a></p>
+</div></footer>
+<a class="top" href="#" aria-label="맨 위로">↑</a>
+<div class="toast" role="status" aria-live="polite"></div>
+<script src="app.js?v=4"></script>
+</body>
+</html>

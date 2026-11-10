@@ -395,6 +395,11 @@ mark.ph.filled{background:var(--sage-soft);color:var(--sage)}
   .mini{grid-template-columns:repeat(2,1fr)}
   .page-head{padding-top:40px;padding-bottom:20px}
 }
+@media (max-width:520px){
+  .nav .brand{display:none}
+  .nav__links{margin:0 auto;gap:2px}
+  .nav__links a{padding:7px 10px;font-size:14px}
+}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{
   .nav,.toc,.top,.tools-bar,.fill,.copy,.toast,.act-row{display:none!important}
